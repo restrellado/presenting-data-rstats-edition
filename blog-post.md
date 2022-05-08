@@ -292,7 +292,7 @@ penguins |>
     #> 2 Chinstrap               48.8                  196.
     #> 3 Gentoo                  47.5                  217.
 
-# Go Forth
+# Conclusion
 
 So that’s it. Start your data analysis by looking at many data points.
 Then describe it through an interesting story. Afterward, start your
