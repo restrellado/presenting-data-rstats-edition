@@ -2,7 +2,7 @@
 title: "How I Use Stories to Share Data at Meetings (R Edition)"
 author: "Ryan Estrellado"
 date: 'May 8, 2022'
-output: github_document
+output: html_document
 ---
 
 ```{r Set Options, echo=FALSE}
