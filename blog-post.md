@@ -305,19 +305,12 @@ fun environment where actual learning happens. Because who says truth
 can’t also be entertaining?
 
 *Ryan Estrellado is a writer and educator. He is the author of the book
-<<<<<<< HEAD
 [The K–12 Educator’s Data Guidebook: Reimagining Practical Data Use in
 Schools](https://ryanestrellado.com/the-k12-educators-data-guidebook)
 and a co-author of [Data Science in Education Using
 R](https://ryanestrellado.com/data-science-in-education-using-r). Ryan
 tells inspiring stories about the reality of education work, ranging
 from overcoming a fear of data to finding a creative practice in the
-=======
-The K–12 Educator’s Data Guidebook: Reimagining Practical Data Use in
-Schools and a co-author of Data Science in Education Using R. Ryan tells
-inspiring stories about the reality of education work, ranging from
-overcoming a fear of data to finding a creative practice in the
->>>>>>> c2ed519d9ecc5a5fff6cf1e0f22de9c6b1862a65
 workplace. He has over twenty years of experience in public education.
 Ryan writes about [data-driven decision making in schools and how to
 build creative education careers](ryanestrellado.com) at
