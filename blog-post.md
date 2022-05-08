@@ -1,7 +1,7 @@
 How I Use Stories to Share Data at Meetings (R Edition)
 ================
 Ryan Estrellado
-2022-04-27
+May 8, 2022
 
 ## Want to keep people awake at data presentations? Try sharing your findings backwards. You’ve worked it. Now put your charts down, flip it and reverse it.
 
@@ -52,14 +52,7 @@ must keep them awake, right?
 Or as Jerry puts it in that episode of *Seinfeld*, “If every instinct
 you have is wrong, then the opposite would have to be right.”
 
-``` r
-# Insert tweet about analysis and presentation 
-
-# Test Tweet
-tweetrmd::include_tweet("https://twitter.com/ry_estrellado/status/1409900670317064196")
-```
-
-![](blog-post_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](blog-post_files/figure-gfm/Tweet-1.png)<!-- -->
 
 In the rest of this post I’ll share the sequence of steps I take to
 discover my findings. Then I’ll reverse those steps to craft a story for
@@ -87,42 +80,24 @@ Penguins dataset, I notice there are variables that describe
 measurements:
 
 ``` r
-# Packages I'm Using
-
 library(tidyverse)
-```
-
-    ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
-
-    ## ✔ ggplot2 3.3.5     ✔ purrr   0.3.4
-    ## ✔ tibble  3.1.6     ✔ dplyr   1.0.8
-    ## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
-    ## ✔ readr   2.1.2     ✔ forcats 0.5.1
-
-    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-    ## ✖ dplyr::filter() masks stats::filter()
-    ## ✖ dplyr::lag()    masks stats::lag()
-
-``` r
 library(palmerpenguins)
 ```
 
 ``` r
-# Note length and depth variables 
-
 glimpse(penguins)
 ```
 
-    ## Rows: 344
-    ## Columns: 8
-    ## $ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
-    ## $ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
-    ## $ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
-    ## $ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
-    ## $ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
-    ## $ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
-    ## $ sex               <fct> male, female, female, NA, female, male, female, male…
-    ## $ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+    #> Rows: 344
+    #> Columns: 8
+    #> $ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+    #> $ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+    #> $ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+    #> $ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+    #> $ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+    #> $ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+    #> $ sex               <fct> male, female, female, NA, female, male, female, male…
+    #> $ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
 
 So for this example, I’ll use this question: Do different species of
 penguins have different measurements?
@@ -137,45 +112,32 @@ want to see each data point. I also color the points by species, based
 on the hunch that different species have different measurements:
 
 ``` r
-# Bill length
-
 ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) + 
   geom_point() + 
   labs(title = "Bill Length By Species")
 ```
 
-    ## Warning: Removed 2 rows containing missing values (geom_point).
-
-![](blog-post_files/figure-gfm/bill%20length%20plot-1.png)<!-- -->
+![](blog-post_files/figure-gfm/Bill%20Length%20Plot-1.png)<!-- -->
 
 ``` r
-# Bill depth
 ggplot(penguins, aes(x = body_mass_g, y = bill_depth_mm, color = species)) + 
   geom_point() + 
   labs(title = "Bill Depth By Species")
 ```
 
-    ## Warning: Removed 2 rows containing missing values (geom_point).
-
-![](blog-post_files/figure-gfm/bill%20depth%20plot-1.png)<!-- -->
+![](blog-post_files/figure-gfm/Bill%20Depth%20Plot-1.png)<!-- -->
 
 ``` r
-# Flipper length 
-
 ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, color = species)) + 
   geom_point() + 
   labs(title = "Flipper Length By Species")
 ```
 
-    ## Warning: Removed 2 rows containing missing values (geom_point).
-
-![](blog-post_files/figure-gfm/flipper%20length%20plot-1.png)<!-- -->
+![](blog-post_files/figure-gfm/Flipper%20Length%20Plot-1.png)<!-- -->
 
 I also find the average length of these measurements by penguin species:
 
 ``` r
-# Average measurements 
-
 penguins |> 
   group_by(species) |> 
   summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE), 
@@ -184,12 +146,12 @@ penguins |>
             mean_body_mass = mean(body_mass_g, na.rm = TRUE))
 ```
 
-    ## # A tibble: 3 × 5
-    ##   species   mean_bill_length mean_bill_depth mean_flipper_length mean_body_mass
-    ##   <fct>                <dbl>           <dbl>               <dbl>          <dbl>
-    ## 1 Adelie                38.8            18.3                190.          3701.
-    ## 2 Chinstrap             48.8            18.4                196.          3733.
-    ## 3 Gentoo                47.5            15.0                217.          5076.
+    #> # A tibble: 3 × 5
+    #>   species   mean_bill_length mean_bill_depth mean_flipper_length mean_body_mass
+    #>   <fct>                <dbl>           <dbl>               <dbl>          <dbl>
+    #> 1 Adelie                38.8            18.3                190.          3701.
+    #> 2 Chinstrap             48.8            18.4                196.          3733.
+    #> 3 Gentoo                47.5            15.0                217.          5076.
 
 I’ve plotted and summarized the data to help me spot interesting
 details. Now I’ll play with some language to describe what I notice.
@@ -284,18 +246,16 @@ Now the data helps your audience see how you arrived at the story:
 > length of all three species:
 
 ``` r
-ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) + 
+ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) +
   geom_point() + 
-  labs(title = "Flipper Length By Species", 
+  labs(title = "Bill Length By Species", 
        x = "Body mass in mm", 
        y = "Bill length in mm", 
        caption = "Data: Palmer Penguins", 
        color = "Species") 
 ```
 
-    ## Warning: Removed 2 rows containing missing values (geom_point).
-
-![](blog-post_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](blog-post_files/figure-gfm/Bill%20Length%20Presentation-1.png)<!-- -->
 
 > And here’s one that compares the flipper length of all three species:
 
@@ -309,9 +269,7 @@ ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, color = species)) +
        color = "Species") 
 ```
 
-    ## Warning: Removed 2 rows containing missing values (geom_point).
-
-![](blog-post_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](blog-post_files/figure-gfm/Flipper%20Length%20Presentation-1.png)<!-- -->
 
 > See what I mean? The Chinstrap penguins tend to have longer bill
 > lengths. But they didn’t tend to have longer flipper length. That
@@ -321,17 +279,18 @@ ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, color = species)) +
 ``` r
 penguins |> 
   group_by(species) |> 
-  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE), 
-            mean_flipper_length = mean(flipper_length_mm, na.rm = TRUE)) |> 
-  arrange(desc(mean_bill_length))
+  summarize("Mean Bill Length" = mean(bill_length_mm, na.rm = TRUE), 
+            "Mean Flipper Length" = mean(flipper_length_mm, na.rm = TRUE)) |>
+  rename("Species" = species) |> 
+  arrange(desc("Mean Bill Length"))
 ```
 
-    ## # A tibble: 3 × 3
-    ##   species   mean_bill_length mean_flipper_length
-    ##   <fct>                <dbl>               <dbl>
-    ## 1 Chinstrap             48.8                196.
-    ## 2 Gentoo                47.5                217.
-    ## 3 Adelie                38.8                190.
+    #> # A tibble: 3 × 3
+    #>   Species   `Mean Bill Length` `Mean Flipper Length`
+    #>   <fct>                  <dbl>                 <dbl>
+    #> 1 Adelie                  38.8                  190.
+    #> 2 Chinstrap               48.8                  196.
+    #> 3 Gentoo                  47.5                  217.
 
 # Go Forth
 
@@ -360,8 +319,8 @@ ryanestrellado.com*
 1.  **flip it and reverse it**: Elliot, M (2002). “Work It,” *Under
     Construction*, The Goldmind, Inc. 
 
-2.  *I’ll be sharing those lessons with you*: I’ve shared this technique
-    in a video about [presenting school
+2.  **I’ll be sharing those lessons with you**: I’ve shared this
+    technique in a video about [presenting school
     data](https://ryanestrellado.com/how-to-present-data-without-putting-people-to-sleep)
     and in my book about [data-driven decision making in
     schools](https://ryanestrellado.com/the-k12-educators-data-guidebook)
@@ -374,8 +333,9 @@ ryanestrellado.com*
     responses or [other stories from educators in the
     field](https://podcasts.apple.com/us/podcast/donuts-in-the-lounge-a-podcast-for-educators/id1610942852).
 
-5.  Horst AM, Hill AP, Gorman KB (2020). *palmerpenguins: Palmer
-    Archipelago (Antarctica) penguin data*. R package version 0.1.0.
+5.  **Palmer Penguins Package**: Horst AM, Hill AP, Gorman KB (2020).
+    *palmerpenguins: Palmer Archipelago (Antarctica) penguin data*. R
+    package version 0.1.0.
     <https://allisonhorst.github.io/palmerpenguins/>. doi:
     10.5281/zenodo.3960218.
 

@@ -1,9 +1,19 @@
 ---
 title: "How I Use Stories to Share Data at Meetings (R Edition)"
 author: "Ryan Estrellado"
-date: '2022-04-27'
+date: 'May 8, 2022'
 output: github_document
 ---
+
+```{r Set Options, echo=FALSE}
+library(knitr) 
+library(tweetrmd)
+
+opts_chunk$set(comment = "#>", 
+               warning = FALSE, 
+               message = FALSE)
+```
+
 
 ## Want to keep people awake at data presentations? Try sharing your findings backwards. You've worked it. Now put your charts down, flip it and reverse it. 
 
@@ -30,11 +40,8 @@ I had a similar experience reflecting on my data presentations. People were fall
 
 Or as Jerry puts it in that episode of *Seinfeld*, "If every instinct you have is wrong, then the opposite would have to be right."
 
-```{r}
-# Insert tweet about analysis and presentation 
-
-# Test Tweet
-tweetrmd::include_tweet("https://twitter.com/ry_estrellado/status/1409900670317064196")
+```{r Tweet, echo=FALSE}
+include_tweet("https://twitter.com/ry_estrellado/status/1409900670317064196")
 ```
 
 In the rest of this post I'll share the sequence of steps I take to discover my findings. Then I'll reverse those steps to craft a story for a presentation. I'll explore the Palmer Penguins R package to show how this idea works. 
@@ -55,16 +62,12 @@ I go through these steps to explore the Palmer Penguins dataset in the next few 
 
 First, I'll use a basic questions to start my exploration. During this stage, I like to let my curiosity lead. When I look through the Palmer Penguins dataset, I notice there are variables that describe measurements: 
 
-```{r packages}
-# Packages I'm Using
-
+```{r Packages}
 library(tidyverse)
 library(palmerpenguins)
 ```
 
-```{r explore variables}
-# Note length and depth variables 
-
+```{r Explore Variables}
 glimpse(penguins)
 ```
 
@@ -74,24 +77,19 @@ When I'm exploring a dataset, I visualize the data in different ways. Again, at 
 
 I'm curious about differences in measurements, so I plot the bill length, bill depth, and flipper length. I use a scatter plot because I want to see each data point. I also color the points by species, based on the hunch that different species have different measurements:
 
-```{r bill length plot}
-# Bill length
-
+```{r Bill Length Plot}
 ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) + 
   geom_point() + 
   labs(title = "Bill Length By Species")
 ```
 
-```{r bill depth plot}
-# Bill depth
+```{r Bill Depth Plot}
 ggplot(penguins, aes(x = body_mass_g, y = bill_depth_mm, color = species)) + 
   geom_point() + 
   labs(title = "Bill Depth By Species")
 ```
 
-```{r flipper length plot}
-# Flipper length 
-
+```{r Flipper Length Plot}
 ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, color = species)) + 
   geom_point() + 
   labs(title = "Flipper Length By Species")
@@ -99,9 +97,7 @@ ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, color = species)) +
 
 I also find the average length of these measurements by penguin species: 
 
-```{r average measurements}
-# Average measurements 
-
+```{r Average Measurements}
 penguins |> 
   group_by(species) |> 
   summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE), 
@@ -174,10 +170,10 @@ And now comes the data. This part is about digging a level deeper and showing yo
 
 >Let me show you what I mean. Here's a plot that compares the bill length of all three species: 
 
-```{r}
-ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) + 
+```{r Bill Length Presentation}
+ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) +
   geom_point() + 
-  labs(title = "Flipper Length By Species", 
+  labs(title = "Bill Length By Species", 
        x = "Body mass in mm", 
        y = "Bill length in mm", 
        caption = "Data: Palmer Penguins", 
@@ -186,7 +182,7 @@ ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) +
 
 >And here's one that compares the flipper length of all three species: 
 
-```{r}
+```{r Flipper Length Presentation}
 ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, color = species)) + 
   geom_point() + 
   labs(title = "Flipper Length By Species", 
@@ -198,15 +194,17 @@ ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, color = species)) +
 
 >See what I mean? The Chinstrap penguins tend to have longer bill lengths. But they didn't tend to have longer flipper length. That crown goes to the Gentoo. You can see that more in this table of mean measurements: 
 
-```{r}
+```{r Average Measurements Presentation}
 penguins |> 
   group_by(species) |> 
-  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE), 
-            mean_flipper_length = mean(flipper_length_mm, na.rm = TRUE)) |> 
-  arrange(desc(mean_bill_length))
+  summarize("Mean Bill Length" = mean(bill_length_mm, na.rm = TRUE), 
+            "Mean Flipper Length" = mean(flipper_length_mm, na.rm = TRUE)) |>
+  rename("Species" = species) |> 
+  arrange(desc("Mean Bill Length"))
 ```
 
-# Go Forth 
+
+# Conclusion
 
 So that's it. Start your data analysis by looking at many data points. Then describe it through an interesting story. Afterward, start your presentation by leading with a story. Then signal the rigor of your analysis with supporting data points. 
 
@@ -220,13 +218,13 @@ When you do this, you'll be creating one less meeting where people nod off. And 
 
 1. **flip it and reverse it**: Elliot, M (2002). "Work It," *Under Construction*, The Goldmind, Inc.  
 
-1. *I'll be sharing those lessons with you*: I've shared this technique in a video about [presenting school data](https://ryanestrellado.com/how-to-present-data-without-putting-people-to-sleep) and in my book about [data-driven decision making in schools](https://ryanestrellado.com/the-k12-educators-data-guidebook)
+1. **I'll be sharing those lessons with you**: I've shared this technique in a video about [presenting school data](https://ryanestrellado.com/how-to-present-data-without-putting-people-to-sleep) and in my book about [data-driven decision making in schools](https://ryanestrellado.com/the-k12-educators-data-guidebook)
 
 1. **George Constanza laments his bad fortune**: [George's clip on YouTube](https://youtu.be/CizwH_T7pjg) 
 
 1. **we'll see the sequence of steps**: This post has an example of numerical data, but I use this sequence when reflecting on interview responses or [other stories from educators in the field](https://podcasts.apple.com/us/podcast/donuts-in-the-lounge-a-podcast-for-educators/id1610942852).
 
-1. Horst AM, Hill AP, Gorman KB (2020). *palmerpenguins: Palmer Archipelago (Antarctica) penguin data*. R package version 0.1.0. [https://allisonhorst.github.io/palmerpenguins/](https://allisonhorst.github.io/palmerpenguins/). doi: 10.5281/zenodo.3960218.
+1. **Palmer Penguins Package**: Horst AM, Hill AP, Gorman KB (2020). *palmerpenguins: Palmer Archipelago (Antarctica) penguin data*. R package version 0.1.0. [https://allisonhorst.github.io/palmerpenguins/](https://allisonhorst.github.io/palmerpenguins/). doi: 10.5281/zenodo.3960218.
 
 1. **For this example, we'll use this question**: You'll likely be exploring your own data more thoroughly, but I'm keeping it simple for this post to illustrate the technique. 
 
