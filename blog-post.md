@@ -112,7 +112,7 @@ want to see each data point. I also color the points by species, based
 on the hunch that different species have different measurements:
 
 ``` r
-ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) + 
+ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) +
   geom_point() + 
   labs(title = "Bill Length By Species")
 ```
