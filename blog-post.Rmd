@@ -2,7 +2,7 @@
 title: "How I Use Stories to Share Data at Meetings (R Edition)"
 author: "Ryan Estrellado"
 date: 'May 8, 2022'
-output: html_document
+output: github_document
 ---
 
 ```{r Set Options, echo=FALSE}
@@ -211,7 +211,7 @@ So that's it. Start your data analysis by looking at many data points. Then desc
 When you do this, you'll be creating one less meeting where people nod off. And more to the point of a data presentation, you'll be creating a fun environment where actual learning happens. Because who says truth can't also be entertaining? 
 
 
-*Ryan Estrellado is a writer and educator. He is the author of the book The K–12 Educator’s Data Guidebook: Reimagining Practical Data Use in Schools and a co-author of Data Science in Education Using R. Ryan tells inspiring stories about the reality of education work, ranging from overcoming a fear of data to finding a creative practice in the workplace. He has over twenty years of experience in public education. Ryan writes about [data-driven decision making in schools and how to build creative education careers](ryanestrellado.com) at ryanestrellado.com*
+*Ryan Estrellado is a writer and educator. He is the author of the book [The K–12 Educator’s Data Guidebook: Reimagining Practical Data Use in Schools](https://ryanestrellado.com/the-k12-educators-data-guidebook) and a co-author of [Data Science in Education Using R](https://ryanestrellado.com/data-science-in-education-using-r). Ryan tells inspiring stories about the reality of education work, ranging from overcoming a fear of data to finding a creative practice in the workplace. He has over twenty years of experience in public education. Ryan writes about [data-driven decision making in schools and how to build creative education careers](ryanestrellado.com) at ryanestrellado.com*
 
 
 # Notes 
