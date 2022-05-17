@@ -9,7 +9,7 @@ The first time I put someone to sleep with a data presentation was in
 2003.
 
 I was a school psychologist in a public school here in the United
-States. That meant, among other things, that I tested grade school
+States. That meant, among other things, that I tested elementary school
 students for learning disabilities. Then I’d share the results at
 meetings with parents and school staff so we could all help the student
 better.
@@ -43,11 +43,11 @@ fortune and resolves to do the opposite of every choice he’s ever made:
 > toast. Chicken salad. On rye. Untoasted.
 
 I had a similar experience reflecting on my data presentations. People
-were falling asleep when I shared my findings in the same order that I
-discovered them. Like, George, I wanted the complete opposite of that:
-Presenting the findings in the *opposite* order that I discovered them.
-I mean, if one way puts the audience to sleep, then the opposite way
-must keep them awake, right?
+fell asleep when I shared my findings in the same order that I
+discovered them. Like George, I wanted the complete opposite: Presenting
+the findings in the *reverse* order that I discovered them. I mean, if
+one way puts the audience to sleep, then shouldn’t the opposite way keep
+them awake?
 
 Or as Jerry puts it in that episode of *Seinfeld*, “If every instinct
 you have is wrong, then the opposite would have to be right.”
@@ -99,7 +99,7 @@ glimpse(penguins)
     #> $ sex               <fct> male, female, female, NA, female, male, female, male…
     #> $ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
 
-So for this example, I’ll use this question: Do different species of
+So for this example, I use this question: Do different species of
 penguins have different measurements?
 
 When I’m exploring a dataset, I visualize the data in different ways.
@@ -158,15 +158,15 @@ details. Now I’ll play with some language to describe what I notice.
 
 ## Note Interesting Details
 
-Here’s where my the exploration pays off. Where in the last section I
-led with my curiosity, in this session I start spotting details. Or as
+Here’s where my exploration pays off. Where in the last section I led
+with my curiosity, in this session I start focusing on details. Or as
 the design thinkers would say, the last section was for divergent
-thinking. In this section, I start convergent thinking:
+thinking. This section is for convergent thinking:
 
 -   The Chinstrap penguins have the highest mean bill length, though
     it’s similar to the Gentoo’s bill length
 -   The Chinstrap penguins have the highest mean bill depth, though the
-    Adelie’s is very close
+    Adelie’s are very close
 -   The Gentoo penguins have the highest mean flipper length, followed
     by the Chinstrap, and then the Adelie
 
@@ -174,8 +174,8 @@ thinking. In this section, I start convergent thinking:
 
 I think of themes as a collection of interesting details. Interesting
 details on their own are just that—interesting details. But when I
-describe what these interesting details have in common, I get something
-else—the beginnings of a story.
+describe what they have in common, I get something else—the beginnings
+of a story.
 
 For example, I can play with different ways to describe what I pointed
 out in the last section:
@@ -188,7 +188,7 @@ By this point in the process, I’ve explored the data and found
 interesting details. Then I played with ways to talk about those
 details. Now, I’ll craft a way to share this with an audience.
 
-Thd good news is most of the work is already done. But there’s one
+The good news is most of the work is already done. But there’s one
 important move I need to make if I want to avoid another snooze cruise.
 
 # The Presentation: Start With the Story
@@ -222,14 +222,14 @@ You might open the presentation for the Palmer Penguins exploration like
 this:
 
 > I was expecting to see some differences in measurements. These are
-> different species of penguin after all. But it turns out it’s not as
+> different species of penguins, after all. But it turns out it’s not as
 > simple as one species being bigger than the others.
 
 ## Describe Selected Details
 
 The second part is about unpacking interesting details. It’s how you
-signal credibility. After all, whatever it is you found so interesting
-isn’t made up. You discovered it by doing an actual analysis:
+signal credibility. Whatever it is you found so interesting isn’t made
+up. You discovered it by doing an actual analysis:
 
 > There’s one example of this that stuck to me. The Chinstrap penguins
 > had bigger bills on average. But surprisingly, they didn’t have the
