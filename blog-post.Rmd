@@ -15,13 +15,13 @@ opts_chunk$set(comment = "#>",
 ```
 
 
-## Want to keep people awake at data presentations? Try sharing your findings backwards. You've worked it. Now put your charts down, flip it and reverse it. 
+## Want to keep people awake at data presentations? Try sharing your findings backwards. You've worked it. Now put your chart down, flip it and reverse it. 
 
 The first time I put someone to sleep with a data presentation was in 2003. 
 
 I was a school psychologist in a public school here in the United States. That meant, among other things, that I tested elementary school students for learning disabilities. Then I'd share the results at meetings with parents and school staff so we could all help the student better. 
 
-At one of these meetings, as I soldiered through every single data point of my tests, I noticed a teammate had gone silent. At first I thought she was using active listening skills. Then it struck me that one can't do that with their eyes closed.
+At one of these meetings, as I soldiered through every single data point of my tests, I noticed a teammate had gone silent. At first, I thought she was using active listening skills. Then it struck me that one can't do that with their eyes closed.
 
 Yes, she was sleeping. In providing a safe place to nap, I had done a service for the public education community. But it wasn't the service I was paid to do. 
 
@@ -34,17 +34,17 @@ If this article were called, "How to Put People to Sleep With Data Presentations
 
 In Season 5, Episode 21 of *Seinfeld*, George Costanza laments his bad fortune and resolves to do the opposite of every choice he's ever made: 
 
->No wait a minute. I always have tuna on toast. Nothing's ever worked out for me with tuna on toast. I want the complete opposite of tuna on toast. Chicken salad. On rye. Untoasted.
+>No, wait a minute. I always have tuna on toast. Nothing's ever worked out for me with tuna on toast. I want the complete opposite of tuna on toast. Chicken salad. On rye. Untoasted.
 
 I had a similar experience reflecting on my data presentations. People fell asleep when I shared my findings in the same order that I discovered them. Like George, I wanted the complete opposite: Presenting the findings in the *reverse* order that I discovered them. I mean, if one way puts the audience to sleep, then shouldn't the opposite way keep them awake?
 
-Or as Jerry puts it in that episode of *Seinfeld*, "If every instinct you have is wrong, then the opposite would have to be right."
+Or, as Jerry puts it in that episode of *Seinfeld*, "If every instinct you have is wrong, then the opposite would have to be right."
 
 ```{r Tweet, echo=FALSE}
 include_tweet("https://twitter.com/ry_estrellado/status/1409900670317064196")
 ```
 
-In the rest of this post I'll share the sequence of steps I take to discover my findings. Then I'll reverse those steps to craft a story for a presentation. I'll explore the Palmer Penguins R package to show how this idea works. 
+In the rest of this post, I'll share the sequence of steps I take to discover my findings. Then I'll reverse those steps to craft a story for a presentation. I'll explore the Palmer Penguins R package to show how this idea works. 
 
 
 # The Analysis: Start With the Data Points
@@ -60,7 +60,7 @@ I go through these steps to explore the Palmer Penguins dataset in the next few 
 
 ## Look at All the Data Points 
 
-First, I'll use a basic questions to start my exploration. During this stage, I like to let my curiosity lead. When I look through the Palmer Penguins dataset, I notice there are variables that describe measurements: 
+First, I'll use a basic question to start my exploration. During this stage, I like to let my curiosity lead. When I look through the Palmer Penguins dataset, I notice there are variables that describe measurements: 
 
 ```{r Packages}
 library(tidyverse)
@@ -73,7 +73,7 @@ glimpse(penguins)
 
 So for this example, I use this question: Do different species of penguins have different measurements? 
 
-When I'm exploring a dataset, I visualize the data in different ways. Again, at this stage, I'm not overthinking it. It's more like sketching ideas than it is painting a masterpiece. 
+When I'm exploring a dataset, I visualize the data in various ways. Again, at this stage, I'm not overthinking it. It's more like sketching ideas than it is painting a masterpiece. 
 
 I'm curious about differences in measurements, so I plot the bill length, bill depth, and flipper length. I use a scatter plot because I want to see each data point. I also color the points by species, based on the hunch that different species have different measurements:
 
@@ -111,7 +111,7 @@ I've plotted and summarized the data to help me spot interesting details. Now I'
 
 ## Note Interesting Details 
 
-Here's where my exploration pays off. Where in the last section I led with my curiosity, in this session I start focusing on details. Or as the design thinkers would say, the last section was for divergent thinking. This section is for convergent thinking: 
+Here's where my exploration pays off. In the last section, I led with my curiosity. In this session, I start focusing on details. Or, as the design thinkers would say, the last section was for divergent thinking. This section is for convergent thinking: 
 
  - The Chinstrap penguins have the highest mean bill length, though it's similar to the Gentoo's bill length 
  - The Chinstrap penguins have the highest mean bill depth, though the Adelie's are very close 
@@ -208,7 +208,7 @@ penguins |>
 
 So that's it. Start your data analysis by looking at many data points. Then describe it through an interesting story. Afterward, start your presentation by leading with a story. Then signal the rigor of your analysis with supporting data points. 
 
-When you do this, you'll be creating one less meeting where people nod off. And more to the point of a data presentation, you'll be creating a fun environment where actual learning happens. Because who says truth can't also be entertaining? 
+When you do this, you'll organize one fewer meeting where people nod off. And more to the point of a data presentation, you'll create a fun environment where actual learning happens. Because who says truth can't also be entertaining? 
 
 
 *Ryan Estrellado is a writer and educator. He is the author of the book [The K–12 Educator’s Data Guidebook: Reimagining Practical Data Use in Schools](https://ryanestrellado.com/the-k12-educators-data-guidebook) and a co-author of [Data Science in Education Using R](https://ryanestrellado.com/data-science-in-education-using-r). Ryan tells inspiring stories about the reality of education work, ranging from overcoming a fear of data to finding a creative practice in the workplace. He has over twenty years of experience in public education. Ryan writes about [data-driven decision making in schools and how to build creative education careers](ryanestrellado.com) at ryanestrellado.com*
